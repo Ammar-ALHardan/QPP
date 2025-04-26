@@ -1,0 +1,19 @@
+<div class="flex justify-center items-center flex-col gap-4 bg-[#f3f4f6]  border-[#cecece] border-2 w-full lg:w-1/2 mx-auto mt-10 rounded-lg p-4 shadow-lg">
+   <div class="flex flex-row justify-between items-center w-full ">
+    <h2 class="text-xl text-[#000] font-[600]">All Tasks</h2>
+    <button class="text-base text-[#000] border-2 cursor-pointer border-[#000] rounded-lg p-5" routerLink="/add-task" >+ Add task</button>
+   </div>
+    <div *ngFor="let task of tasks" class="w-full">
+        <div class="bg-[#e6e6e6] px-4 lg:px-10 py-7 rounded-lg shadow-lg">
+         <div class="flex flex-col lg:flex-row gap-6 flex-wrap justify-evenly">
+            <h3> <span class="font-[600]">Title :</span>  {{task.title}} </h3>
+            <h3> <span class="font-[600]">Description :</span> {{task.description}} </h3>
+            <h3> <span class="font-[600]">Status :</span> {{task.status}} </h3>
+         </div>
+        <div class="w-full lg:w-1/2 justify-center flex gap-4 mt-5 mx-auto">
+            <button (click)="editTask(task)" class="text-[#009933] font-[700] cursor-pointer border-[#009933] border-2 py-2 px-5 rounded-lg">Edit</button>
+            <button (click)="deleteTask(task.id)" class="text-[#ff0000] font-[700] cursor-pointer border-[#ff0000] border-2 py-2 px-5 rounded-lg">Delete</button>
+        </div>
+        </div>
+    </div>
+</div>
